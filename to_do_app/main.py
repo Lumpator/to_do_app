@@ -1,10 +1,8 @@
 from app_operations import app_functions, opening_phrase
 
 
-class App:
-    def __init__(self, user_action):
-        self.action = user_action
-        app_functions.get(self.action)()
+def app(user_action):
+    app_functions.get(user_action)()
 
 
 while True:
@@ -12,7 +10,6 @@ while True:
     if action.lower() == "e":
         break
     if action in app_functions:
-        a = App(action)
+        app(action)
     else:
         print("Invalid option. Please try it again")
-
